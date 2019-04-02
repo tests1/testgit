@@ -1,0 +1,33 @@
+Open the command line.
+Set your username:
+git config --global user.name "FIRST_NAME LAST_NAME"
+Set your email address:
+git config --global user.email "MY_NAME@example.com"
+
+https://help.github.com/en/articles/changing-a-remotes-url#switching-remote-urls-from-https-to-ssh
+
+
+git remote add origin git@github.com:tests1/testgit.git
+
+https://gist.github.com/developius/c81f021eb5c5916013dc
+
+https://help.github.com/en/articles/connecting-to-github-with-ssh
+
+https://www.atlassian.com/git/tutorials/using-branches
+
+
+git push -u origin master b1
+git push -u origin b1 
+
+
+
+
+
+git diff HEAD
+
+create branch on local:
+	git branch b2
+
+to push into remote branch:
+
+	git push -u origin  b2
