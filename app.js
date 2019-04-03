@@ -19,7 +19,11 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 // import axios from 'axios';
 
+<<<<<<< HEAD
 //ElementUI change new b1-t2-1
+=======
+//ElementUI change new b1-t3-1
+>>>>>>> 2a6b7b42f05d3db4e81594b2fa19f45840fbb8d4
 import Element from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en'
 import DataTables from 'vue-data-tables' 
