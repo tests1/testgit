@@ -1,0 +1,68 @@
+const {writeFile} = require('fs');
+const {promisify} = require('util');
+
+const {Builder, By, Key, promise, until, Capabilities} = require('selenium-webdriver');
+const firefox = require('selenium-webdriver/firefox');
+
+promise.USE_PROMISE_MANAGER = false;
+const chartUrl='url';
+
+var firefoxOptions = new firefox.Options();
+firefoxOptions.setBinary('/data/sw/ff/firefox/firefox');
+firefoxOptions.headless();
+
+
+//const binary = new firefox.Binary('/data/sw/ff/firefox/firefox');
+//new firefox.Options().setBinary(firefox.Channel.NIGHTLY);
+//binary.addArguments("--headless");
+
+
+const driver = new Builder()
+        .forBrowser('firefox')
+        .setFirefoxOptions(firefoxOptions)
+        /*.setPreference('browser.cache.memory.enable',)
+         .setPreference('browser.cache.memory.capacity',)
+         .setPreference('browser.cache.disk.enable',)
+         .setPreference('browser.cache.disk.capacity',)*/
+        .build();
+
+async function main() {
+    await driver.manage().setTimeouts({pageLoad: 1800000, script: 1800000});
+    //  console.log(driver.manage().getTimeouts({pageLoad: 1800000, script: 1800000}));
+    await  driver.manage().getTimeouts({pageLoad: 1800000, script: 1800000}).then((d) => console.log(d));
+
+
+//     driver.withCapabilities();
+    // Configure firefox options...
+    //console.log(await Capabilities.firefox());
+    await driver.getCapabilities().then((d) => console.log(d));
+    //console.log(driver.getCapabilities().get('moz:firefoxOptions'));
+    //console.log(driver.getFirefoxOptions());
+    //let caps = new Capabilities();
+    //console.log(caps.get('moz:firefoxOptions'));
+
+
+    //browser.cache.memory.capacity
+    await driver.get(chartUrl);
+    //await driver.findElement(By.id('home-q')).sendKeys('testing', Key.RETURN);
+    //await driver.wait(until.titleIs('Search Results for "testing" | MDN'));
+
+    //driver.findElement(By.tagName('form'));
+    let div = await driver.wait(until.elementLocated(By.tagName('svg')), 1800000);
+    await driver.wait(async () => {
+        const readyState = await driver.executeScript('return document.readyState');
+        return readyState === 'complete';
+    });
+    const data = await driver.takeScreenshot();
+    var fname = 'screenshot-sel-ff-' + new Date().getTime() + '.png';
+
+    await promisify(writeFile)(fname, data, 'base64');
+    await driver.quit();
+    console.log(fname);
+}
+
+main();
+
+// https://github.com/mdn/headless-examples/issues/6
+// https://github.com/mdn/headless-examples/blob/master/selenium-test.js
+//https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Headless_mode
