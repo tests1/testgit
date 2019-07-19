@@ -1,0 +1,37 @@
+{
+  "name": "poc",
+  "version": "1.0.0",
+  "main": "2grab_chromeless.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "canvas": "^2.3.1",
+    "chart.js": "^2.7.3",
+    "chroma-js": "^2.0.3",
+    "chromedriver": "^2.46.0",
+    "chromeless": "^1.5.2",
+    "compression": "^1.7.3",
+    "connect-timeout": "^1.9.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "geckodriver": "^1.14.1",
+    "jsdom": "^13.2.0",
+    "lodash": "^4.17.11",
+    "mariadb": "^2.0.3",
+    "morgan": "^1.9.1",
+    
+    "nightmare": "^3.0.1",
+    "node-echarts": "^1.1.4",
+    "prerender": "^5.5.1",
+    "puppeteer": "^1.11.0",
+    "request-promise": "^4.2.2",
+    "selenium-webdriver": "^4.0.0-alpha.1",
+    "sequelize": "^5.8.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
