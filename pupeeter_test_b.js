@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
-
+const chartUrl='';
 (async () => {
     try {
         var start_time = Date.now();
@@ -64,7 +64,7 @@ const fs = require('fs');
 
         //await page.goto('http://localhost:81/chart_test/bl.ocks.org.html');
         //await page.goto('https://bl.ocks.org/vasturiano/raw/ded69192b8269a78d2d97e24211e64e0/');
-        await page.goto('http://virmzbappd001w.isotest.infousa.com:81/chart_test/bak/bl.ocks.org.html', {waitUntil: 'domcontentloaded'});
+        await page.goto(chartUrl, {waitUntil: 'domcontentloaded'});
         //await page.evaluateHandle('document.fonts.ready');
 
         console.log('MillSecTime_ToPrepareRandData');
